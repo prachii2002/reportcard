@@ -1,0 +1,123 @@
+#%%
+d=[]
+nme=[]
+dv=[]
+rn=[]
+avg1=[]
+n=int(input('Enter no. of report cards to be printed:'))
+
+for i in range(n):
+    nm=input('Enter Name:')
+    rno=int(input("Enter Roll No.:"))
+    div=input('Enter Division:')
+    if div in 'ABCD':
+        nme.append(nm)
+        rn.append(rno)
+        dv.append(div)
+    
+        if div=='A':
+            m1=int(input("Enter English marks:"))
+            m2=int(input("Enter Chemistry marks:"))
+            m3=int(input("Enter Physics marks:"))
+            m4=int(input("Enter Mathematics marks:"))
+            m5=int(input("Enter Computer Science marks:"))
+            avg=((m1+m2+m3+m4+m5)/500)*100
+            avg1.append(avg)
+            ml={'English':m1,'Chemistry':m2,'Physics':m3,'Mathematics':m4,'Computer':m5}
+            d.append(ml)
+        elif div=='B':
+            m1=int(input("Enter English marks:"))
+            m2=int(input("Enter Chemistry marks:"))
+            m3=int(input("Enter Physics marks:"))
+            m4=int(input("Enter Biology marks:"))
+            m5=int(input("Enter Computer Science marks:")) 
+            avg=((m1+m2+m3+m4+m5)/500)*100
+            avg1.append(avg)
+            ml={'English':m1,'Chemistry':m2,'Physics':m3,'Biology':m4,'Computer':m5}
+            d.append(ml)
+        elif div=='C':
+            m1=int(input("Enter Commerce marks:"))
+            m2=int(input("Enter Business marks:"))
+            m3=int(input("Enter Economics marks:"))
+            m4=int(input("Enter Mathematics marks:"))
+            m5=int(input("Enter English marks:")) 
+            avg=((m1+m2+m3+m4+m5)/500)*100
+            avg1.append(avg)
+            ml={'Commerce':m1,'Business':m2,'Economics':m3,'Mathematics':m4,'English':m5}
+            d.append(ml)
+        elif div=='D':
+            m1=int(input("Enter English marks:"))
+            m2=int(input("Enter History marks:"))
+            m3=int(input("Enter Political Science marks:"))
+            m4=int(input("Enter Business marks:"))
+            m5=int(input("Enter Psychology marks:")) 
+            
+            avg=((m1+m2+m3+m4+m5)/500)*100
+            avg1.append(avg)
+            ml={'English':m1,'History':m2,'Political Science':m3,'Business studies':m4,'Psychology':m5}
+            d.append(ml)
+    else:
+        print('The division entered does not exist.(report card will not be displayed)')
+
+
+for i in range(0,len(nme)):
+    print("----------------------------------------------------------------------------------------")
+    print('\t',"  ___   ___              __       __     ___  __   ___  __      __  __")
+    print('\t',"|    | |___ |   |___||  |__| |  ||__||    |  |    |__  |   |__||  ||  ||")
+    print('\t',"| ___| |___ |__ |   ||  |    |__||__||__ _|_ |__  ___| |__ |  ||__||__||__")
+    print('\t'," ")
+    print('\n','\t','ANNUAL STUDENT REPORT CARD')
+    print('\n','\t','     SENIOR SECONDARY  ','\n')
+    
+    print('NAME:',nme[i])     #DETAILS
+    print("")
+    print('DIVISION:',dv[i])
+    print("")
+    print('ROLL NO.',rn[i])
+    print("")
+    print('\n')
+    print(' _______________________________________')
+    print('|Subject','\t','\t','|','\t','Marks  |')
+    print('|________________________|______________|')
+    for j in d[i].keys():
+        if d[i][j]<100 and d[i][j]>9:
+            if len(j)<12:
+                print('|',j,'\t','\t','|','\t',d[i][j],'    |')
+        
+            else:
+                print('|',j,'\t','|','\t',d[i][j],'    |')
+        elif d[i][j]==100:
+            if len(j)<12:
+                print('|',j,'\t','\t','|','\t',d[i][j],'   |')
+            else:
+                print('|',j,'\t','|','\t',d[i][j],'    |')
+        else:
+            if len(j)<12:
+                print('|',j,'\t','\t','|','\t',d[i][j],'     |')
+        
+            else:
+                print('|',j,'\t','|','\t',d[i][j],'     |')
+                
+    print('|________________________|______________|','\n')
+    
+    
+    print("Average score:",avg1[i])
+    if avg1[i]>=90:
+        print("Grade:A+")
+    elif avg1[i]>=80 and avg1[i]<90:
+        print("Grade:A")
+    elif avg1[i]<80 and avg1[i]>=70:
+        print("Grade:B+")
+    elif avg1[i]<70 and avg1[i]>=60:
+        print("Grade:B")
+    elif avg1[i]<60 and avg1[i]>=50:
+        print("Grade:C+")
+    elif avg1[i]<50 and avg1[i]>=40:
+        print("Grade:C")
+    else:
+        print('Grade:F')
+    print("----------------------------------------------------------------------------------------")
+
+#%%  
+        
+    
